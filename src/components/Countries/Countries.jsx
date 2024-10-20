@@ -4,19 +4,21 @@ import Country from "../Country/Country";
 import "./Countries.css";
 
 const Countries = () => {
+  // state declare
   const [countries, setCountries] = useState([]);
   const [visitedCountries, setVisitedCountries] = useState([]);
   const [visitedFlags, setVisitedFlags] = useState([]);
 
+  // side effect use for load data
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => res.json())
       .then((data) => setCountries(data));
   }, []);
 
-  // added element in array on using react
+  // onClick er function for eventHandle
   const handleVisitedCountry = (country) => {
-    const newVisitedCountries = [...visitedCountries, country]; // array te new variable add
+    const newVisitedCountries = [...visitedCountries, country]; // array te new variable add using react
     setVisitedCountries(newVisitedCountries); // function call for update count
   };
 
